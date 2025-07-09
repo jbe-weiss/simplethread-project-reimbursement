@@ -1,0 +1,33 @@
+input:
+	- "scenario' project/s (make obj, define elements/funcs below)
+		- start date (mm/dd/yy - find date/time python type that makes sense)
+		- end date (mm/dd/yy - "")
+		- high/low cost city (custom "city_cost_enum", string, or bool)
+		
+output:
+	- reimbursement $ for set of projects
+
+	
+reimbursement calculation:
+	: reimb =  45 * num_days_travel_lowcost + 55 * num_days_travel_highcost + 75 * num_days_full_lowcost + 85*num_days_fullhighcost
+	
+	- to get num days travel and num full days:
+	foreach proj (?)	
+	- if x proj end date > or = y proj start date
+		- 2 travel days, y_end - x_start -1 full days 
+	- else
+		- 2 travel days, proj_end - proj_start - 1 full days
+			
+possible questions:
+	- if projs overlap and a travel day is the same as a full day, do we still just reimburse for a full day?
+	- if a project overlaps from high to low cost city, reimburse high cost?
+	- are there ever 3 projects going on at a time?
+	- could the list/input data be out of order/should i do any input normalization/validation or just solve for the three examples
+	
+notes: 
+	- starts 6/12 ends 6/15
+	- travel 12, 15
+	- full 13, 14
+	
+	any proj has 2 travels
+	full = end - start - 1
