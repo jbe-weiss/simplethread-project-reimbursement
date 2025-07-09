@@ -38,25 +38,36 @@ def calc_reimbursement(set):
     set_start_date = sorted_set[0].start 
     set_end_date = sorted_set[len(sorted_set)-1].end
 
-    curr_date = set_start_date
-    while curr_date <= set_end_date:
-
-        # check if date exists in any project,
-        # each day gets val of none, full high, full low, trav high, or trav low
-        for project in sorted_set:
-            if not (project.start <= curr_date <= project.end):
-                reimburse += 0
-            elif 
-    
 
     # new idea just use a hash map
     reimburse_dict = {}
+
+    #iterate through projects in set
     for project in sorted_set:
         curr_date = project.start
+
+        #iterate through project dates
         while project.start <= curr_date <= project.end:
-            if curr_date in reimburse_dict:
-                if project.cost == "low":
-                    reimburse_dict
+            if curr_date == project.start:
+                if curr_date not in reimburse_dict:
+                    reimburse_dict[curr_date] == TRAV_DAY_HIGH_COST if project.cost == "high" else TRAV_DAY_LOW_COST
+                else:
+                    reimburse_dict[curr_date] == FULL_DAY_HIGH_COST if project.cost == "high" else FULL_DAY_LOW_COST
+            elif project.start < curr_date < project.end:
+                if curr_date not in reimburse_dict:
+                    reimburse_dict[curr_date] == FULL_DAY_HIGH_COST if project.cost == "high" else FULL_DAY_LOW_COST
+                else: 
+                    reimburse_dict[curr_date] == FULL_DAY_HIGH_COST if project.cost == "high" else reimburse_dict[curr_date]
+            else:
+                if curr_date not in reimburse_dict:
+                    reimburse_dict[curr_date] == TRAV_DAY_HIGH_COST if project.cost == "high" else TRAV_DAY_LOW_COST
+                else:
+                    # if they end on same day, use this for start too
+                    if reimburse_dict[curr_date] == TRAV_DAY_LOW_COST and project.cost == "high":
+                        reimburse_dict[curr_date] == TRAV_DAY_HIGH_COST
+                    else:
+                        reimburse_dict[curr_date] == FULL_DAY_HIGH_COST if project.cost == "high" else reimburse_dict[curr_date]
+                
 
     print(sorted_set)
         
