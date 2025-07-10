@@ -31,3 +31,16 @@ notes:
 	
 	any proj has 2 travels
 	full = end - start - 1
+	
+algo:
+ count thru all dates from beginingn to end of set
+ 	each day gets 1 value:
+ 		none: day does not exist in any set
+ 		low travel: cost type low, beginning or end of a project, not in any other project
+ 		low full: cost type low, within a low projects date or 2
+ 		high travel: high type, beginging or end of project, not in any other project
+ 		high full
+ 		
+ 		
+ - create set of vals for each day, iterate through each projects day see if its been reimbursed
+ - new idea: create dict for each day as you iterate through project days, check if it already exists and what it is then make reimb judgment at the end
