@@ -1,7 +1,9 @@
 # simplethread-project-reimbursement
-This repo contains the solution and notes for my (J Weiss) interview assignment submission for SimpleThread. The problem is centered around a reimbursement amount for sets of project dates.
+This repo contains the solution, reimbursement_calc.py, and scratch notes for my (J Weiss) interview assignment submission for SimpleThread. The problem is centered around a reimbursement amount for sets of project dates.
 
-This program can run directly in console or IDE using a Python3 compiler. The test sets have been input manually to the main function, so will be utilizied when ran, and solution items will print sequentially to the console.
+The script can run directly in console or IDE using a Python3 compiler. The test sets have been input manually to the main function, so will be utilizied when ran, and solution items will print sequentially to the console.
+
+
 # Dependencies
 - Python 3
 
